@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.LeaveApproval.LeaveApplicationForm">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <StackLayout  Spacing="0" Padding="0"  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Orientation="Vertical" BackgroundColor="White" VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Vertical" HorizontalOptions="FillAndExpand">
+                <StackLayout x:Name="stackFirstTab" MinimumHeightRequest="500"  BackgroundColor="#FFF">
+                    <StackLayout BackgroundColor="#000"  Spacing="0"  Padding="0" Orientation="Vertical" VerticalOptions="StartAndExpand"  >
+                        <Label FontSize="16" Margin="20,10,0,0" Font="Robot" TextColor="#FFF" Text="LEAVE STATUS" />
+                        <ListView x:Name="listLeaveStatus" RowHeight="200"   HorizontalOptions="FillAndExpand" BackgroundColor="#FFF" >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <ViewCell.View>
+                                            <StackLayout Orientation="Vertical">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <StackLayout VerticalOptions="FillAndExpand"  Margin="20,10,10,20">
+                                                        <Label x:Name="lblLeaveType" Text="{Binding LeaveType}"  LineBreakMode="HeadTruncation"  FontSize="16" FontFamily="Roboto" TextColor="#000" />
+                                                        <StackLayout  Orientation="Horizontal"   >
+                                                            <Label x:Name="lblOB" Text="Opening Balance (A)" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label x:Name="lblADate" Text="{Binding OpeningBalance}" FontSize="14" FontFamily="Roboto" TextColor="#333" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Horizontal" >
+                                                            <Label x:Name="lblAccured" Text="Accrued (B)" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label Text="{Binding Accrued}" FontSize="14" FontFamily="Roboto" TextColor="#333" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Horizontal" >
+                                                            <Label x:Name="lblTotal" Text="Total(C=A+B)" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label Text="{Binding Total}"  FontSize="14" FontFamily="Roboto" TextColor="#333" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Horizontal" >
+                                                            <Label x:Name="lblAvailed" Text="Availed (D)" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label Text="{Binding Availed }"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Horizontal"  >
+                                                            <Label x:Name="lblCB" Text="Closing Balance (C-D)" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label Text="{Binding ClosingBalance }"  FontSize="14" FontFamily="Roboto" TextColor="#333" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                        <StackLayout  Orientation="Horizontal"  >
+                                                            <Label x:Name="lblAppliedNotApproved" Text="Applied Not Approved" TextColor="#999" HorizontalOptions="StartAndExpand"></Label>
+                                                            <Label Text="{Binding AppliedNotApproved}"  FontSize="14" FontFamily="Roboto" TextColor="#333" HorizontalOptions="EndAndExpand"></Label>
+                                                        </StackLayout>
+                                                    </StackLayout>
+                                                </StackLayout>
+
+                                            </StackLayout>
+                                        </ViewCell.View>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    <Button x:Name="btnNext" Text="Apply For Leave" WidthRequest="100" HeightRequest="40"  Margin="20,10,20,20" BackgroundColor="#0099ff" TextColor="#FFF"
+                                                                        Clicked="btnApplyForLeave_Clicked"></Button>
+                </StackLayout>
+                <ScrollView>
+                    <StackLayout x:Name="stackNextTab" Orientation="Vertical"  Margin="20,10,20,20"  HorizontalOptions="FillAndExpand"  IsVisible="False" >
+                        <StackLayout  Orientation="Horizontal"  >
+                            <Label x:Name="lblDate" Text="Date : " HorizontalOptions="Start"   TextColor="#000" FontSize="16" FontFamily="Roboto"  IsEnabled="False"/>
+
+                            <DatePicker x:Name="DPDate" Format="D" HorizontalOptions="End" Margin="0,-10,0,0" TextColor="#000" ></DatePicker>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal"   >
+                            <Label x:Name="lblApprover" Text="Approver : "   FontSize="16" FontFamily="Roboto"  TextColor="#000"/>
+                            <Label x:Name="entApprover" FontSize="14" TextColor="#000" Text=""  HorizontalOptions="Center" IsEnabled="False" ></Label>
+                        </StackLayout>
+                        <StackLayout HeightRequest="1" WidthRequest="320" BackgroundColor="#000"></StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <StackLayout  Orientation="Horizontal"  >
+                                <Label x:Name="lblLeaveType" Text="Leave Type" FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                <Label x:Name="valLeaveType" Text="*" TextColor="Red"></Label>
+                            </StackLayout>
+                            <Picker  x:Name="entLeaveType"  BackgroundColor="#F2f2f2" Title="Select Leave Type"  TextColor="#000" SelectedIndexChanged="entLeaveType_SelectedIndexChanged">
+                            </Picker>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"  Margin="0,10,0,10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblFrom" Text="Date From"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                <Label x:Name="valFrom" Text="*"   TextColor="Red"></Label>
+                            </StackLayout>
+                            <DatePicker x:Name="DPDateFrom"  BackgroundColor="White"  TextColor="#000"  >
+                                <DatePicker.Format>dd/MMM/yyyy</DatePicker.Format>
+
+                            </DatePicker>
+                            <!--<control:ChipsoftDatePicker x:Name="DPDateFrom"  BackgroundColor="White"  TextColor="#000"
+                                                          >
+                                <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+
+                            </control:ChipsoftDatePicker> ​-->
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblTo" Text="Date To"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                <Label x:Name="valTo" Text="*"   TextColor="Red"></Label>
+                            </StackLayout>
+                            <DatePicker x:Name="DPDateTo" BackgroundColor="White"  TextColor="#000"  >
+                                <DatePicker.Format>dd/MMM/yyyy</DatePicker.Format>
+
+                            </DatePicker>
+                            <!--<control:ChipsoftDatePicker x:Name="DPDateTo"  BackgroundColor="White"  TextColor="#000"
+                                                          >
+                                <DatePicker.Format>dd/MM/yyyy</DatePicker.Format>
+
+                            </control:ChipsoftDatePicker> ​-->
+                        </StackLayout>
+                        <StackLayout x:Name="slDays"  Orientation="Horizontal" BackgroundColor="#abdeff" Padding="5" IsVisible="False">
+                            <!--IsVisible="False"-->
+                            <Label x:Name="lblDay" Text="Days : "   FontSize="16" FontFamily="Roboto" TextColor="#000" HorizontalOptions="Start"/>
+                            <Label x:Name="lblDays" Text=""   FontSize="16" FontFamily="Roboto"  HorizontalOptions="Start" TextColor="#000"/>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="EndAndExpand"  >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                            </StackLayout.GestureRecognizers>
+                            <Label x:Name="btnHalfDay" Text="Click for Half Day" TextColor="#0099ff" ></Label>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                            <StackLayout Orientation="Horizontal">
+                                <Label x:Name="lblReason" Text="Reason"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                <Label x:Name="valReason" Text="*" TextColor="Red"></Label>
+                            </StackLayout>
+                            <Editor x:Name="EditReason" FontSize="14" BackgroundColor="White"  TextColor="#000"></Editor>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <Label x:Name="lblCCMail" Text="CC Mail"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Entry x:Name="EntCMail" FontSize="14" BackgroundColor="White"  TextColor="#000"></Entry>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <Label x:Name="lblCntactNumber" Text="Contact Number"  FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Entry x:Name="EntContactNumber" FontSize="14" BackgroundColor="White"  TextColor="#000"></Entry>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <Label x:Name="lblContactAddress" Text="Contact Address"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Editor x:Name="EditContactAddress"  FontSize="14" BackgroundColor="White"   TextColor="#000"></Editor>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <Label x:Name="lblCity" Text="City"  FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Entry x:Name="EntCity" FontSize="14" TextColor="#000" BackgroundColor="White"   ></Entry>
+                        </StackLayout>
+                        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Margin="0,10,0,10">
+                            <Label x:Name="lblPin" Text="Pin"  FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Entry x:Name="EntPin " FontSize="14" TextColor="#000" BackgroundColor="White"></Entry>
+                        </StackLayout>
+                        <StackLayout x:Name="div_MedicalCerti" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" IsVisible="False" Margin="0,10,0,10">
+                            <Label x:Name="lblMedicert" Text="Is Medical Certificate"  FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                            <Picker x:Name="pickerMedCer" HorizontalOptions="StartAndExpand"  Title="select Medical Certificate" BackgroundColor="#FFF" TextColor="#000"></Picker>
+                            <!--//Radiobutton   id rad_medicalCerti-->
+                        </StackLayout>
+                        <Button x:Name="btnBack" Text="Back" WidthRequest="100" Clicked="btnBack_Clicked"></Button>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+            <StackLayout x:Name="stackButton"  Orientation="Horizontal"  Padding="10,10,10,10"  BackgroundColor="#F2F2F2" HeightRequest="100">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnSave"  FontSize="14" FontFamily="Roboto" BackgroundColor="#1d1d26" TextColor="#FFF"   Clicked="btnSave_Clicked" HeightRequest="20" WidthRequest="80"    Text="Save" Grid.Row="0" Grid.Column="0"  />
+                    <Button x:Name="btnApply" FontSize="14" FontFamily="Roboto" BackgroundColor="#ff3300" TextColor="#FFF"  Clicked="btnApply_Clicked" HeightRequest="20" WidthRequest="80" Text="Submit" Grid.Row="0" Grid.Column="1"   />
+                    <Button x:Name="btnApprove" FontSize="Default" FontFamily="Roboto" BackgroundColor="#ff3300" TextColor="#FFF" Text="Approve" HeightRequest="20" WidthRequest="80"  Clicked="btnApprove_Clicked" Grid.Row="0" Grid.Column="2"  />
+                    <Button x:Name="btnReject" FontSize="Default" FontFamily="Roboto" BackgroundColor="#1d1d26" TextColor="#FFF" Text="Disapprove"  Clicked="btnReject_Clicked" HeightRequest="20" WidthRequest="80" Grid.Row="0" Grid.Column="3"  />
+                </Grid>
+            </StackLayout>
+
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="#000" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

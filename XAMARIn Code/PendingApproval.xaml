@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.PendingApproval">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="CIICO.png" Aspect="Fill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.7" BackgroundColor="#003399"></StackLayout>
+
+        <StackLayout x:Name="grdAdd"  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Transparent">
+
+            <StackLayout HeightRequest="100" Margin="0,20,0,0"  Orientation="Vertical" VerticalOptions="FillAndExpand" >
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout Margin="20" Orientation="Horizontal" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                        <Frame HasShadow="True" BackgroundColor="#ea7233" Grid.Row="0" Grid.Column="0" >
+                            <StackLayout x:Name="stackTravel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Orientation="Vertical" HeightRequest="100" WidthRequest="140">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout Spacing="0" Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal" BackgroundColor="#FDFBC6" >
+                                    <Label  FontSize="14" TextColor="#000"  Text="Pending " HorizontalOptions="FillAndExpand" />
+                                    <Label x:Name="lblReqCount" FontSize="14" TextColor="#FFF" Text="03" HorizontalOptions="EndAndExpand"/>
+                                    <!--<StackLayout  Orientation="Horizontal"  BackgroundColor="Aqua"   HorizontalOptions="Center"   >
+                                        <Label  FontSize="14" TextColor="#000"  Text="Pending " HorizontalOptions="StartAndExpand"/>
+                                        <Label x:Name="lblReqCount" FontSize="14" TextColor="#FFF" Text="03" HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>-->
+                                    <!--<StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal"   >
+                                    <StackLayout HorizontalOptions="EndAndExpand">
+                                    <Label  FontSize="14" TextColor="#000"  Text="Pending " />
+                                    <Label x:Name="lblTravelReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="03" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="FillAndExpand"  Orientation="Horizontal"  >
+                                    <StackLayout HorizontalOptions="StartAndExpand">
+                                        <Image  Source="Requisition.png" BackgroundColor="Transparent"/>
+                                        <Label  FontSize="14" TextColor="#000"  Text="Requistion " />
+                                    </StackLayout>
+                                </StackLayout>-->
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!--LeaveApproval-->
+                        <Frame HasShadow="True" BackgroundColor="#bf3e49" Grid.Row="0" Grid.Column="1"  >
+                            <StackLayout x:Name="stackPD" VerticalOptions="FillAndExpand" Orientation="Vertical"  HeightRequest="100" WidthRequest="140">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                                </StackLayout.GestureRecognizers>
+                                <StackLayout HorizontalOptions="Center" >
+                                    <AbsoluteLayout >
+                                        <Image Source="Print.png" BackgroundColor="Transparent"/>
+                                        <AbsoluteLayout Margin="40,-10,0,0"  >
+                                            <Image x:Name="imgPD"   BackgroundColor="Transparent"/>
+                                            <Label x:Name="lblPDCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                        </AbsoluteLayout>
+                                    </AbsoluteLayout>
+
+                                </StackLayout>
+                                <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                                    <Label  FontSize="14" TextColor="#FFF"  Text="Print" />
+
+                                </StackLayout>
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="#FFF" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

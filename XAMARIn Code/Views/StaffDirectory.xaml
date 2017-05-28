@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.Views.StaffDirectory">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Gray">
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Orientation="Vertical" VerticalOptions="FillAndExpand" Margin="15,15,15,0">
+            <StackLayout >
+                <Entry x:Name="txtLocation" BackgroundColor="#FFF" ></Entry>
+            </StackLayout>
+
+            <ListView x:Name="listEmployee" RowHeight="160" ItemSelected="listEmployee_ItemSelected"  HorizontalOptions="FillAndExpand"  >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <ViewCell.View >
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" BackgroundColor="#FFF" Margin="0,10,0,0">
+                                    <StackLayout>
+                                        <Label x:Name="lblName" Text="{Binding Name}"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                        <Label x:Name="lblEmailId" Text="{Binding EmailId}"  FontSize="14"  FontFamily="Roboto" TextColor="#000" />
+                                        <Label  x:Name="lblMobile" Text="{Binding Mobile}" FontSize="14" FontFamily="Roboto" TextColor="#666"></Label>
+                                        <Label x:Name="lblImageURL" Text="{Binding ImageURL}" FontSize="14" FontFamily="Roboto" TextColor="#666" />
+                                        <StackLayout HeightRequest="90" Margin="0" Padding="0" Orientation="Horizontal" HorizontalOptions="StartAndExpand" BackgroundColor="Red">
+                                            <StackLayout  WidthRequest="160" Margin="0" Padding="0"  Orientation="Horizontal" HorizontalOptions="StartAndExpand" 
+                                                     BackgroundColor="Aqua" >
+                                                <StackLayout.GestureRecognizers >
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Call" CommandParameter="{Binding Mobile}"  ></TapGestureRecognizer>
+                                                </StackLayout.GestureRecognizers>
+                                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                                                    <Label Text="Call"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                            <StackLayout WidthRequest="160"  Margin="0" Padding="0" Orientation="Horizontal"  BackgroundColor="Lime">
+                                                <StackLayout.GestureRecognizers>
+                                                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Message"  CommandParameter="{Binding Mobile}"  ></TapGestureRecognizer>
+                                                </StackLayout.GestureRecognizers>
+                                                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="Center">
+                                                    <Label Text="Message"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+
+                                </StackLayout>
+
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+              AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <ActivityIndicator  WidthRequest="110" HeightRequest="70" IsRunning="True"
+            IsVisible="True" Color="#000" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

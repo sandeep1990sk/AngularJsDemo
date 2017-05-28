@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.Views.PrintRequisition">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout  Spacing="0" Padding="0"  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#FFF"  Orientation="Vertical" VerticalOptions="FillAndExpand">
+            <ScrollView Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <StackLayout  Spacing="0" Padding="0"  Orientation="Vertical"  VerticalOptions="FillAndExpand" BackgroundColor="#FFF">
+                    <StackLayout  Spacing="0" Padding="0"   Orientation="Vertical">
+                        <StackLayout  Spacing="0" Padding="0"  Margin="20,10,20,0" >
+                            <StackLayout  Spacing="0" Padding="0"  Orientation="Vertical"   HorizontalOptions="StartAndExpand"   VerticalOptions="StartAndExpand"  >
+                                <Label x:Name="lblDeptName"  FontSize="16" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label x:Name="lblevtName"  FontSize="14" FontFamily="Roboto" TextColor="#666" ></Label>
+                            </StackLayout>
+                            <StackLayout  Spacing="0" Padding="0"  Orientation="Vertical"   HorizontalOptions="StartAndExpand"   VerticalOptions="StartAndExpand"  Margin="0,10,0,0"  >
+                                <Label x:Name="lblpurpose" Text="Purpose Of Requisition" FontSize="16" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label x:Name="lblpurposetest"  FontSize="14" FontFamily="Roboto" TextColor="#666" ></Label>
+                            </StackLayout>
+                            <StackLayout  Spacing="0" Padding="0"  Orientation="Vertical"   HorizontalOptions="StartAndExpand" HeightRequest="50"   Margin="0,10,0,0" >
+                                <Label x:Name="lblESD" Text="Executing Service Department" FontSize="16" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label x:Name="lblESDValue"  FontSize="14" FontFamily="Roboto" TextColor="#666" ></Label>
+                            </StackLayout>
+                        </StackLayout>
+
+                        <StackLayout BackgroundColor="#CCC" HeightRequest="40" Spacing="0" Padding="0" Margin="0,10,0,0">
+                            <Label FontSize="16" Margin="20,10,0,0" Font="Robot" TextColor="#666" Text="BUDGET PROVISION" />
+                        </StackLayout>
+
+                        <StackLayout Spacing="0" Padding="0"  Orientation="Vertical"  BackgroundColor="#FDFBC6" >
+                            <StackLayout  Orientation="Horizontal"  Margin="20,10,20,0"  >
+                                <Label Text="Budget Provision (Rs.)"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                <Label x:Name="lblBP" Text=""  FontSize="14" FontFamily="Roboto" TextColor="#000"  HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout  Spacing="0" Padding="0"  Orientation="Horizontal"  Margin="20,0,20,0">
+                                <Label Text="Budget Utilized (Rs.)" FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                <Label  x:Name="lblBU" Text=""  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout  Spacing="0" Padding="0" Orientation="Horizontal"  Margin="20,0,20,0">
+                                <Label Text="Submitted For Processing (Rs.)"   FontSize="14" HorizontalOptions="Start" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label  x:Name="lblSFP" Text=""  FontSize="14" FontFamily="Roboto" TextColor="#000"  HorizontalOptions="EndAndExpand"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="0" Padding="0"  Orientation="Horizontal"  Margin="20,0,20,0">
+                                <Label Text="Balance Available (Rs.)" FontSize="14"  HorizontalOptions="StartAndExpand" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label  x:Name="lblBA" Text=""  FontSize="14" FontFamily="Roboto" HorizontalOptions="EndAndExpand" TextColor="#000"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="0" Padding="0"  Orientation="Horizontal"    Margin="20,0,20,0" BackgroundColor="#FC0">
+                                <Label Text="This Requisition (Rs.)" HorizontalOptions="StartAndExpand"  FontSize="14" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label  x:Name="lblTR" Text=""  FontSize="14" FontFamily="Roboto" HorizontalOptions="EndAndExpand" VerticalOptions="End" TextColor="#000"></Label>
+                            </StackLayout>
+                            <StackLayout Spacing="0" Padding="0"  Orientation="Horizontal"   Margin="20,0,20,10">
+                                <Label Text="Balance after this Requisition (Rs.)"  HorizontalOptions="StartAndExpand"  FontSize="14" FontFamily="Roboto" TextColor="#000" ></Label>
+                                <Label  x:Name="lblBATR" Text=""  FontSize="14" FontFamily="Roboto" HorizontalOptions="EndAndExpand" TextColor="#000"></Label>
+                            </StackLayout>
+                        </StackLayout>
+
+
+                        <StackLayout BackgroundColor="#CCC" HeightRequest="40" Spacing="0" Padding="0" Margin="0,10,0,0">
+                            <Label FontSize="16" Margin="20,10,0,0" Font="Robot" TextColor="#666" Text="GENERAL DETAILS" />
+                        </StackLayout>
+
+                        <StackLayout x:Name="stackGeneralDeatils" VerticalOptions="FillAndExpand" Margin="20,10,20,0">
+
+                        </StackLayout>
+
+                        <StackLayout BackgroundColor="#CCC" HeightRequest="40" Spacing="0" Padding="0" Margin="0,10,0,0">
+                            <Label FontSize="16" Margin="20,10,0,0" Font="Robot" TextColor="#666" Text="REQUISITION HISTORY" />
+                        </StackLayout>
+
+                        <StackLayout x:Name="stackRequisitionHistory">
+                        </StackLayout>
+
+
+                    </StackLayout>
+
+
+
+                </StackLayout>
+
+            </ScrollView>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand" Margin="10,10,10,10" StyleClass="LoginHeader" BackgroundColor="#FFF" HeightRequest="50">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnAccept" HeightRequest="20" FontSize="14" FontFamily="Roboto" BackgroundColor="#2196f2" TextColor="#FFF"  Clicked="btnAccept_Clicked" Text="Accept" Grid.Row="0" Grid.Column="0" WidthRequest="100" />
+                    <Button x:Name="btnReject" HeightRequest="20" FontSize="14" FontFamily="Roboto" BackgroundColor="#2196f2" TextColor="#FFF"   Clicked="btnReject_Clicked" Text="Reject" Grid.Row="0" Grid.Column="1" Margin="15,0,0,0" WidthRequest="100"   />
+                    <Button x:Name="btnRevert" HeightRequest="20" FontSize="14" FontFamily="Roboto" BackgroundColor="#2196f2" TextColor="#FFF"  Clicked="btnRevert_Clicked" Text="Revert" Grid.Row="0" Grid.Column="2" Margin="15,0,0,0" WidthRequest="100"  />
+
+                </Grid>
+            </StackLayout>
+        </StackLayout>
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="Black" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+            </StackLayout>
+        </ContentView>
+    </AbsoluteLayout>
+</ContentPage>

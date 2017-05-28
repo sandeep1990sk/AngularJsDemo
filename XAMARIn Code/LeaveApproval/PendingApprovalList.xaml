@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.LeaveApproval.PendingApprovalList">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#FFF" Margin="0"  Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listPendingLeave" RowHeight="160" ItemSelected="listPendingLeave_ItemSelected" ItemAppearing="listPendingLeave_ItemAppearing"  SeparatorColor="Maroon"  HorizontalOptions="FillAndExpand" HasUnevenRows="True"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <!--Appearing="Cell_OnAppearing"-->
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal">
+                                        <StackLayout VerticalOptions="FillAndExpand"  Margin="20">
+                                            <Label x:Name="lblTitle" Text="{Binding CreateByName}"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                            <StackLayout  Orientation="Horizontal"  >
+                                                <Label x:Name="lblADate" Text="{Binding Reqdate , StringFormat='Applied On: {0:F0} '}" FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal"  >
+                                                <Label Text="{Binding leaveFrom , StringFormat='From: {0:F0} '}" FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                                <Label Text="{Binding leaveTo , StringFormat='To: {0:F0} '}" FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal"  >
+                                                <Label x:Name="lblLeaveType" Text="{Binding leaveType , StringFormat='Leave: {0:F0} '}"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                                <Label Text="{Binding Status , StringFormat='Status: {0:F0} '}"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal"  >
+                                                <Label x:Name="lblRM" Text=" {Binding Approver1 , StringFormat='Reporting Manager : {0:F0} '}"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                            </StackLayout>
+                                            <StackLayout  Orientation="Horizontal"  >
+                                                <Label x:Name="lblHod" Text=" {Binding Approver2 , StringFormat='HOD : {0:F0} '}"  FontSize="14" FontFamily="Roboto" TextColor="#000" HorizontalOptions="StartAndExpand"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

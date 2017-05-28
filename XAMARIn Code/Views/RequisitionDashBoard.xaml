@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.Views.RequisitionDashBoard">
+    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <Image Source="CIICO.png" Aspect="Fill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+        <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.7" BackgroundColor="#003399"></StackLayout>
+
+        <StackLayout x:Name="grdAdd"  AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="Transparent">
+
+            <StackLayout HeightRequest="100" Margin="0,20,0,0"  Orientation="Vertical" VerticalOptions="FillAndExpand" >
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <StackLayout x:Name="stackTravel" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80"  Grid.Row="0" Grid.Column="0"   >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image  Source="Travel.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgTravel"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblTravelReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Travel " />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackPD" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80"  Grid.Row="0" Grid.Column="1"  >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="Print.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgPD"   BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblPDCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Print" />
+
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackConference" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80" Grid.Row="0" Grid.Column="2" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_2"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="Conference.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgCE"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblCECount" Margin="7,1,0,0"  FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label   FontSize="14" TextColor="#FFF"  Text="Conference"/>
+
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackIT" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80" Grid.Row="0" Grid.Column="3" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_3"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image  Source="IT.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgIT"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblITReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="IT " />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackHotel" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80"  Grid.Row="1" Grid.Column="0"  >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_4"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="Hotel.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgHotel"   BackgroundColor="Transparent"/>
+
+                                    <Label x:Name="lblHotelReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Hotel " />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackTransport" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80"  Grid.Row="1" Grid.Column="1" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_5"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image  Source="Transport.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgTransport"  BackgroundColor="Transparent"/>
+
+                                    <Label x:Name="lblTransportReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Transport "/>
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackAudioVisual" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80"   Grid.Row="1" Grid.Column="2">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_6"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="Audio.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgAV"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblAVReqCount" Margin="7,1,0,0"  FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label   FontSize="14" TextColor="#FFF"  Text="Audio-Visual" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackBackdrop" VerticalOptions="FillAndExpand" Orientation="Vertical" HorizontalOptions="Center" WidthRequest="80"   Grid.Row="1" Grid.Column="3">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_7"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout>
+                                <Image Source="Banner.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout  Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgBB"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblBBReqCount" Margin="7,1,0,10"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Backdrop" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackMedia"  VerticalOptions="FillAndExpand" Orientation="Vertical" HorizontalOptions="Center" WidthRequest="80" Grid.Row="2" Grid.Column="0">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_10"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center">
+                            <AbsoluteLayout>
+                                <Image  Source="Media.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image  x:Name="imgMedia"  BackgroundColor="Transparent" />
+                                    <Label x:Name="lblMediaReqCount" FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Media" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackMiscellaneous" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80" Grid.Row="2" Grid.Column="1" >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_9"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="Miscellaneous.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgMisc"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblMiscReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label  FontSize="14" TextColor="#FFF"  Text="Miscellane.." />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout x:Name="stackGeneral" VerticalOptions="FillAndExpand" Orientation="Vertical"   WidthRequest="80" Grid.Row="2" Grid.Column="2"  >
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_8"></TapGestureRecognizer>
+                        </StackLayout.GestureRecognizers>
+                        <StackLayout HorizontalOptions="Center" >
+                            <AbsoluteLayout >
+                                <Image Source="General.png" BackgroundColor="Transparent"/>
+                                <AbsoluteLayout Margin="40,-10,0,0"  >
+                                    <Image x:Name="imgGen"  BackgroundColor="Transparent"/>
+                                    <Label x:Name="lblGenReqCount" Margin="7,1,0,0"  
+                                          FontSize="14" TextColor="#FFF" Text="" />
+                                </AbsoluteLayout>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                        <StackLayout HorizontalOptions="Center" Margin="-10,0,0,10" >
+                            <Label   FontSize="14" TextColor="#FFF"  Text="General "/>
+                        </StackLayout>
+                    </StackLayout>
+                </Grid>
+                <!--<Button x:Name="btnRefresh" Text="Refresh" Clicked="btnRefresh_Clicked"  ></Button>-->
+            </StackLayout>
+        </StackLayout>
+
+        <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+            <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="#FFF" />
+                <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+            </StackLayout>
+        </ContentView>
+        <!--<ListView x:Name="PullToRefresh" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" Opacity="0.8" IsPullToRefreshEnabled="true" Refreshing="PullToRefresh_Refreshing" />-->
+    </AbsoluteLayout>
+</ContentPage>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="myCIIEmployee.Views.RequisitionList">
+    <ContentPage.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" BackgroundColor="#FFF"  Orientation="Vertical" VerticalOptions="FillAndExpand">
+                <ListView x:Name="listReq" RowHeight="130" ItemSelected="listReq_ItemSelected"  HorizontalOptions="FillAndExpand"  >
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Horizontal" Margin="20">
+                                        <StackLayout VerticalOptions="FillAndExpand">
+                                            <Label x:Name="lblTitle" Text="{Binding EventTitle}"   FontSize="16" FontFamily="Roboto" TextColor="#000"/>
+                                            <Label x:Name="lblName" Text="{Binding Name}"  FontSize="14"  FontFamily="Roboto" TextColor="#000" />
+                                            <Label  x:Name="lblAmount" Text="{Binding Amount}" FontSize="14" FontFamily="Roboto" TextColor="#666"></Label>
+                                            <Label x:Name="lblBriefDet" Text="{Binding BriefDet}" FontSize="14" FontFamily="Roboto" TextColor="#666" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <ContentView x:Name="overlay" AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+               AbsoluteLayout.LayoutFlags="All" IsVisible="False" BackgroundColor="#C0808080" Padding="10, 0">
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <ActivityIndicator   WidthRequest="100" HeightRequest="70" IsRunning="True"
+             IsVisible="True" Color="Black" />
+                    <Label FontSize="Large" FontAttributes="Bold" TextColor="White" Text="Please wait....."></Label>
+                </StackLayout>
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
